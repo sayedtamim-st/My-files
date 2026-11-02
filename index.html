@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>আমাদের পরিবার</title>
+<!--
+  কীভাবে বদলাবেন: যেকোনো টেক্সট এডিটরে (Notepad, VS Code) ফাইলটি খুলে লেখাগুলো বদলে নিন।
+  ছবি যোগ করতে: ছবির ফাইলটি index.html-এর পাশের ফোল্ডারে রাখুন, তারপর পেজের ভেতরে
+  "ছবি" লেখা কমেন্টের জায়গায় এই লাইনটি বসিয়ে দিন (নামটি নিজের ছবির নাম দিয়ে বদলে):
+  img src="ছবির-নাম.jpg" alt="বর্ণনা" — এটি অবশ্যই < এবং > চিহ্নের ভেতরে লিখবেন।
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Tiro+Bangla&display=swap" rel="stylesheet">
+<style>
+:root{--indigo:#1f2a5c;--red:#b3262d;--gold:#e0a100;--paper:#fbfbf8;--ink:#1d1d2b;--mist:#e6ebf5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hind Siliguri','Noto Sans Bengali','Kalpurush','SolaimanLipi',sans-serif;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.8}
+h1,h2,h3{font-family:'Tiro Bangla','Noto Serif Bengali','Kalpurush',serif;font-weight:400;color:var(--indigo);line-height:1.3}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:24px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+ul,ol{list-style:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.band{padding:56px 0}
+
+/* হেডার */
+.top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding:16px 0}
+.brand{font-family:'Tiro Bangla','Noto Serif Bengali',serif;font-size:1.4rem;color:var(--indigo);text-decoration:none}
+.menu{display:flex;flex-wrap:wrap;gap:4px 22px}
+.menu a{text-decoration:none;font-size:1rem}
+.menu a:hover{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:6px}
+
+/* লাল পাড় — শাড়ির পাড়ের মতো */
+.paar{height:4px;border-top:7px solid var(--red);border-bottom:3px solid var(--red)}
+
+/* হিরো */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;padding:56px 0 64px}
+.hero h1{font-size:clamp(2.8rem,8vw,5rem);margin-bottom:16px}
+.hero p{max-width:30ch;font-size:1.2rem;margin-bottom:28px}
+.btn{display:inline-block;background:var(--indigo);color:#fff;text-decoration:none;padding:10px 26px;border-radius:4px;font-weight:600}
+.btn:hover{background:var(--red)}
+.stitch{border:3px dashed var(--indigo);border-radius:6px;padding:12px}
+.frame{position:relative;aspect-ratio:4/5;background:var(--indigo);display:grid;place-items:center;font-size:6rem;overflow:hidden}
+.frame img,.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* আমাদের কথা */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about p{max-width:60ch}
+.values li{border-left:4px solid var(--red);padding-left:16px;margin-bottom:18px}
+.values strong{display:block;font-size:1.15rem;color:var(--indigo)}
+
+/* সদস্য */
+.members{background:var(--mist)}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:28px 20px}
+.person{text-align:center}
+.avatar{position:relative;width:112px;height:112px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;font-size:3rem;border:3px dashed var(--indigo);overflow:hidden}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c1{background:#fff}.c2{background:var(--gold)}.c3{background:var(--red)}.c4{background:var(--indigo)}
+.person h3{font-size:1.25rem}
+.person span{font-size:.95rem;color:#4a4f6a}
+
+/* স্মৃতির ঝলক */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:130px;gap:12px}
+.tile{position:relative;display:grid;place-items:center;font-size:3rem;overflow:hidden;border-radius:4px}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:6px 12px;font-size:.95rem;background:rgba(31,42,92,.85);color:#fff}
+.big{grid-column:span 2;grid-row:span 2;font-size:5rem}
+.wide{grid-column:span 2}
+.g1{background:#f3d98b}.g2{background:#c9d3ee}.g3{background:#ecb7b9}.g4{background:#b9d9cf}.g5{background:#d9c9ee}.g6{background:#f5c9a8}
+
+/* পথচলা */
+.path{background:var(--mist)}
+.line{border-left:3px dashed var(--red);margin-left:8px}
+.line li{position:relative;padding:0 0 28px 28px}
+.line li::before{content:"";position:absolute;left:-10px;top:10px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
+.line b{display:block;font-family:'Tiro Bangla','Noto Serif Bengali',serif;font-weight:400;font-size:1.4rem;color:var(--indigo)}
+
+/* যোগাযোগ */
+.contact{background:var(--indigo);color:#fff}
+.contact h2{color:#fff}
+.contact dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 24px}
+.contact dt{font-weight:600;color:var(--gold)}
+footer{background:var(--indigo);color:#c9d0ea;text-align:center;font-size:.95rem;padding:0 20px 24px}
+
+@media (max-width:720px){
+  body{font-size:17px}
+  .hero,.about{grid-template-columns:1fr;gap:32px}
+  .hero{padding:32px 0 48px}
+  .band{padding:44px 0}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:110px}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="#top">আমাদের পরিবার</a>
+  <nav class="menu" aria-label="প্রধান মেনু">
+    <a href="#about">আমাদের কথা</a>
+    <a href="#members">সদস্য</a>
+    <a href="#moments">স্মৃতি</a>
+    <a href="#path">পথচলা</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>
+</header>
+<div class="paar" aria-hidden="true"></div>
+
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <h1>আমাদের পরিবার</h1>
+      <p>আমাদের সবার গল্প, ছবি আর স্মৃতি এক জায়গায়।</p>
+      <a class="btn" href="#members">সদস্যদের দেখুন</a>
+    </div>
+    <div class="stitch">
+      <div class="frame" role="img" aria-label="পরিবারের ছবি">
+        <!-- ছবি --> 🏡
+      </div>
+    </div>
+  </section>
+
+  <section class="band wrap" id="about">
+    <div class="about">
+      <div>
+        <h2>আমাদের কথা</h2>
+        <p>এখানে আপনার পরিবারের পরিচয় লিখুন। কারা আছেন, কোথায় থাকেন, কী নিয়ে আপনাদের দিন কাটে, কোন গল্পগুলো বারবার বলতে ভালো লাগে।</p>
+      </div>
+      <ul class="values">
+        <li><strong>একসাথে খাওয়া</strong>দিনে অন্তত একবার সবাই এক টেবিলে বসি।</li>
+        <li><strong>বড়দের সম্মান</strong>দাদুর গল্প শোনার সময় আমরা সবাই থামি।</li>
+        <li><strong>ছোটদের আনন্দ</strong>প্রতিটি জন্মদিন আমাদের সবার উৎসব।</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band members" id="members">
+    <div class="wrap">
+      <h2>আমাদের সদস্য</h2>
+      <ul class="people">
+        <li class="person"><div class="avatar c1"><!-- ছবি -->👨</div><h3>বাবা</h3><span>নাম এখানে লিখুন</span></li>
+        <li class="person"><div class="avatar c2"><!-- ছবি -->👩</div><h3>মা</h3><span>নাম এখানে লিখুন</span></li>
+        <li class="person"><div class="avatar c3"><!-- ছবি -->👴</div><h3>দাদু</h3><span>নাম এখানে লিখুন</span></li>
+        <li class="person"><div class="avatar c4"><!-- ছবি -->🧑</div><h3>ভাইয়া</h3><span>নাম এখানে লিখুন</span></li>
+        <li class="person"><div class="avatar c1"><!-- ছবি -->👧</div><h3>আপু</h3><span>নাম এখানে লিখুন</span></li>
+        <li class="person"><div class="avatar c2"><!-- ছবি -->👶</div><h3>ছোট্ট সোনা</h3><span>নাম এখানে লিখুন</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band wrap" id="moments">
+    <h2>স্মৃতির ঝলক</h2>
+    <div class="gallery">
+      <figure class="tile big g1"><!-- ছবি -->🎉<figcaption>উৎসবের দিন</figcaption></figure>
+      <figure class="tile g2"><!-- ছবি -->🧺<figcaption>পিকনিক</figcaption></figure>
+      <figure class="tile g3"><!-- ছবি -->🍲<figcaption>রান্নাঘরের আড্ডা</figcaption></figure>
+      <figure class="tile wide g4"><!-- ছবি -->🚌<figcaption>ছুটির ভ্রমণ</figcaption></figure>
+      <figure class="tile g5"><!-- ছবি -->☕<figcaption>বিকেলের চা</figcaption></figure>
+      <figure class="tile g6"><!-- ছবি -->🎂<figcaption>জন্মদিন</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="band path" id="path">
+    <div class="wrap">
+      <h2>আমাদের পথচলা</h2>
+      <ol class="line">
+        <li><b>২০১০</b>নতুন বাড়িতে আমাদের যাত্রা শুরু।</li>
+        <li><b>২০১৫</b>পরিবারে নতুন সদস্যের আগমন।</li>
+        <li><b>২০২০</b>প্রথম পারিবারিক ভ্রমণ।</li>
+        <li><b>২০২৫</b>উৎসবে চার প্রজন্ম একসাথে।</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <h2>যোগাযোগ</h2>
+      <dl>
+        <dt>ইমেইল</dt><dd>family@example.com</dd>
+        <dt>ফোন</dt><dd>০১XXX-XXXXXX</dd>
+        <dt>ঠিকানা</dt><dd>শহরের নাম, দেশ</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="paar" aria-hidden="true" style="margin-bottom:20px"></div>
+  ভালোবাসা দিয়ে তৈরি, আমাদের পরিবারের জন্য।
+</footer>
+
+</body>
+</html>
